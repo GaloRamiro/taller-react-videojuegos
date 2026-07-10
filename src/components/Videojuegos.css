@@ -1,0 +1,162 @@
+/* ====== GENERAL ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f6fb;
+}
+
+.videojuegos-container {
+  width: 95%;
+  max-width: 1200px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 22px;
+  padding: 30px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== HEADER ===== */
+
+.videojuegos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.videojuegos-header h2 {
+  color: #2b2dff;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.videojuegos-header p {
+  margin-top: 5px;
+  color: #666;
+}
+
+/* ===== TABLA ===== */
+
+.tabla-responsive {
+  overflow-x: auto;
+}
+
+.tabla-videojuegos {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+.tabla-videojuegos thead {
+  background: #2b2dff;
+}
+
+.tabla-videojuegos th {
+  color: white;
+  padding: 18px;
+  text-align: left;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+.tabla-videojuegos th:first-child {
+  border-top-left-radius: 15px;
+}
+
+.tabla-videojuegos th:last-child {
+  border-top-right-radius: 15px;
+}
+
+.tabla-videojuegos td {
+  padding: 18px;
+  border-bottom: 1px solid #ececec;
+  color: #444;
+  transition: 0.3s;
+}
+
+.tabla-videojuegos tbody tr:hover {
+  background: #eef0ff;
+}
+
+/* ===== BADGES ===== */
+
+.estado {
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.disponible {
+  background: #c8ff00;
+  color: #222;
+}
+
+.no.disponible,
+.no-disponible {
+  background: #ff4f6d;
+  color: white;
+}
+
+.activo {
+  background: #2b2dff;
+  color: white;
+}
+
+.inactivo {
+  background: #999;
+  color: white;
+}
+
+/* ===== PRECIO ===== */
+
+.tabla-videojuegos td:nth-child(5) {
+  font-weight: bold;
+  color: #2b2dff;
+}
+
+/* ===== PROGRESO ===== */
+
+.tabla-videojuegos td:nth-child(7) {
+  font-weight: bold;
+  color: #67b300;
+}
+
+/* ===== SCROLL ===== */
+
+.tabla-responsive::-webkit-scrollbar {
+  height: 10px;
+}
+
+.tabla-responsive::-webkit-scrollbar-thumb {
+  background: #2b2dff;
+  border-radius: 20px;
+}
+
+.tabla-responsive::-webkit-scrollbar-track {
+  background: #ddd;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+  .videojuegos-container {
+    padding: 20px;
+  }
+
+  .videojuegos-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .videojuegos-header h2 {
+    font-size: 1.5rem;
+  }
+}
