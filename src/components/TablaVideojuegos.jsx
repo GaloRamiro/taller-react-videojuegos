@@ -1,4 +1,4 @@
-import "./Videojuegos.css";
+import "./TablaVideojuegos.css";
 function TablaVideojuegos({ videojuegos }) {
   return (
     <div className="videojuegos-container">
@@ -37,7 +37,7 @@ function TablaVideojuegos({ videojuegos }) {
                     className={
                       videojuego.disponible
                         ? "estado disponible"
-                        : "estado no disponible"
+                        : "estado no-disponible"
                     }
                   >
                     {videojuego.disponible ? "Sí" : "No"}
