@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function FormularioVideojuego() {
+function FormularioVideojuego({ onGuardar }) {
   const [videojuego, setVideojuego] = useState({
     titulo: "",
     genero: "",
@@ -19,11 +19,26 @@ function FormularioVideojuego() {
     });
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    onGuardar(videojuego);
+
+    setVideojuego({
+      titulo: "",
+      genero: "",
+      plataforma: "",
+      lanzamiento: "",
+      precio: "",
+      disponible: false,
+    });
+  }
+
   return (
     <div>
       <h1>Formulario de Videojuego</h1>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <label>Título</label>
           <input
@@ -50,9 +65,30 @@ function FormularioVideojuego() {
         </div>
 
         <div>
+          <label>Plataforma</label>
+          <input
+            type="text"
+            name="plataforma"
+            value={videojuego.plataforma}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div>
+          <label>Lanzamiento</label>
+          <input
+            type="number"
+            name="lanzamiento"
+            value={videojuego.lanzamiento}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div>
           <label>Precio</label>
           <input
             type="number"
+            step="0.01"
             name="precio"
             value={videojuego.precio}
             onChange={handleChange}
@@ -71,9 +107,7 @@ function FormularioVideojuego() {
           </label>
         </div>
 
-        <button type="submit">
-          Guardar Videojuego
-        </button>
+        <button type="submit">Guardar Videojuego</button>
       </form>
     </div>
   );
