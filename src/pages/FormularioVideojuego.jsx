@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-
+import "./FormularioVideojuego.css";
 function FormularioVideojuego({ onGuardar }) {
   const navigate = useNavigate();
   const location = useLocation();
@@ -42,10 +42,10 @@ function FormularioVideojuego({ onGuardar }) {
   }
 
   return (
-    <div>
+    <div className="formulario-container">
       <h1>{videojuegoEditar ? "Editar Videojuego" : "Registrar Videojuego"}</h1>
 
-      <form onSubmit={handleSubmit}>
+      <form className="formulario" onSubmit={handleSubmit}>
         <div>
           <label>Título</label>
           <input
@@ -102,7 +102,7 @@ function FormularioVideojuego({ onGuardar }) {
           />
         </div>
 
-        <div>
+        <div className="checkbox">
           <label>
             <input
               type="checkbox"
