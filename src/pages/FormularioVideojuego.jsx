@@ -1,14 +1,20 @@
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function FormularioVideojuego({ onGuardar }) {
-  const [videojuego, setVideojuego] = useState({
-    titulo: "",
-    genero: "",
-    plataforma: "",
-    lanzamiento: "",
-    precio: "",
-    disponible: false,
-  });
+  const navigate = useNavigate();
+  const location = useLocation();
+  const videojuegoEditar = location.state;
+  const [videojuego, setVideojuego] = useState(
+    videojuegoEditar || {
+      titulo: "",
+      genero: "",
+      plataforma: "",
+      lanzamiento: "",
+      precio: "",
+      disponible: false,
+    },
+  );
 
   function handleChange(e) {
     const { name, value, type, checked } = e.target;
@@ -18,11 +24,12 @@ function FormularioVideojuego({ onGuardar }) {
       [name]: type === "checkbox" ? checked : value,
     });
   }
-
   function handleSubmit(e) {
     e.preventDefault();
 
     onGuardar(videojuego);
+
+    navigate("/");
 
     setVideojuego({
       titulo: "",
@@ -36,7 +43,7 @@ function FormularioVideojuego({ onGuardar }) {
 
   return (
     <div>
-      <h1>Formulario de Videojuego</h1>
+      <h1>{videojuegoEditar ? "Editar Videojuego" : "Registrar Videojuego"}</h1>
 
       <form onSubmit={handleSubmit}>
         <div>

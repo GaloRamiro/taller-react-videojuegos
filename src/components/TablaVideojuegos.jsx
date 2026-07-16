@@ -1,5 +1,6 @@
 import "./TablaVideojuegos.css";
-function TablaVideojuegos({ videojuegos }) {
+import { Link } from "react-router-dom";
+function TablaVideojuegos({ videojuegos, onEliminar }) {
   return (
     <div className="videojuegos-container">
       <div className="videojuegos-header">
@@ -20,6 +21,7 @@ function TablaVideojuegos({ videojuegos }) {
               <th>Precio</th>
               <th>Disponible</th>
               <th>Progreso</th>
+               <th>Acciones</th>
             </tr>
           </thead>
 
@@ -47,6 +49,15 @@ function TablaVideojuegos({ videojuegos }) {
                 <td>
                   <progress value={videojuego.progreso} max="1"></progress>
                   <span> {(videojuego.progreso * 100).toFixed(0)}%</span>
+                </td>
+                <td>
+                  <Link to="/editar" state={videojuego}>
+                    Editar
+                  </Link>
+
+                  <button onClick={() => onEliminar(videojuego.id)}>
+                    Eliminar
+                  </button>
                 </td>
               </tr>
             ))}

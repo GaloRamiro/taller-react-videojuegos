@@ -19,19 +19,54 @@ function App() {
       },
     ]);
   }
+  function eliminarVideojuego(id) {
+    const filtrados = videojuegos.filter((videojuego) => videojuego.id !== id);
 
+    setVideojuegos(filtrados);
+  }
+  function editarVideojuego(videojuegoEditado) {
+    const actualizados = videojuegos.map((videojuego) => {
+      if (videojuego.id === videojuegoEditado.id) {
+        return videojuegoEditado;
+      } else {
+        return videojuego;
+      }
+    });
+
+    setVideojuegos(actualizados);
+  }
+  function manejarGuardar(videojuego) {
+    const existe = videojuegos.find((v) => v.id === videojuego.id);
+
+    if (existe) {
+      editarVideojuego(videojuego);
+    } else {
+      agregarVideojuego(videojuego);
+    }
+  }
   return (
     <BrowserRouter>
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<Videojuegos videojuegos={videojuegos} />} />
-
+        <Route
+          path="/"
+          element={
+            <Videojuegos
+              videojuegos={videojuegos}
+              onEliminar={eliminarVideojuego}
+            />
+          }
+        />
         <Route
           path="/nuevo"
-          element={<FormularioVideojuego onGuardar={agregarVideojuego} />}
+          element={<FormularioVideojuego onGuardar={manejarGuardar} />}
         />
 
+        <Route
+          path="/editar"
+          element={<FormularioVideojuego onGuardar={manejarGuardar} />}
+        />
         <Route path="*" element={<PaginaNoEncontrada />} />
       </Routes>
     </BrowserRouter>
