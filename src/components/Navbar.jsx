@@ -4,7 +4,9 @@ import "./Navbar.css";
 function Navbar() {
   return (
     <nav className="navbar">
-      <h2>Tienda de Videojuegos</h2>
+      <Link to="/" className="logo">
+        Tienda de Videojuegos
+      </Link>
 
       <div className="menu">
         <Link to="/">Inicio</Link>

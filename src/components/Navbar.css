@@ -1,5 +1,5 @@
 .navbar{
-    background:#222;
+    background:#2b2dff;
     color:white;
     padding:15px 30px;
 
@@ -20,5 +20,15 @@
 }
 
 .menu a:hover{
+    color:#61dafb;
+}
+.logo{
+    color:white;
+    text-decoration:none;
+    font-size:1.8rem;
+    font-weight:bold;
+}
+
+.logo:hover{
     color:#61dafb;
 }
