@@ -21,7 +21,7 @@ function TablaVideojuegos({ videojuegos, onEliminar }) {
               <th>Precio</th>
               <th>Disponible</th>
               <th>Progreso</th>
-               <th>Acciones</th>
+              <th>Acciones</th>
             </tr>
           </thead>
 
@@ -32,7 +32,7 @@ function TablaVideojuegos({ videojuegos, onEliminar }) {
                 <td>{videojuego.genero}</td>
                 <td>{videojuego.plataforma}</td>
                 <td>{videojuego.lanzamiento}</td>
-                <td>${videojuego.precio.toFixed(2)}</td>
+                <td>${Number(videojuego.precio).toFixed(2)}</td>
 
                 <td>
                   <span

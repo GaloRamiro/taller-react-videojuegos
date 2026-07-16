@@ -21,7 +21,12 @@ function FormularioVideojuego({ onGuardar }) {
 
     setVideojuego({
       ...videojuego,
-      [name]: type === "checkbox" ? checked : value,
+      [name]:
+        type === "checkbox"
+          ? checked
+          : type === "number"
+            ? Number(value)
+            : value,
     });
   }
   function handleSubmit(e) {
@@ -51,6 +56,7 @@ function FormularioVideojuego({ onGuardar }) {
           <input
             type="text"
             name="titulo"
+            placeholder="Ingrese el título del videojuego"
             value={videojuego.titulo}
             onChange={handleChange}
           />
@@ -63,6 +69,7 @@ function FormularioVideojuego({ onGuardar }) {
             value={videojuego.genero}
             onChange={handleChange}
           >
+            <option value="">Seleccione un género</option>
             <option value="">Seleccione</option>
             <option value="Acción">Acción</option>
             <option value="RPG">RPG</option>
@@ -76,15 +83,16 @@ function FormularioVideojuego({ onGuardar }) {
           <input
             type="text"
             name="plataforma"
+            placeholder="Ej. PC, PS5, Xbox, Nintendo Switch"
             value={videojuego.plataforma}
             onChange={handleChange}
           />
         </div>
 
         <div>
-          <label>Lanzamiento</label>
+          <label>Fecha de lanzamiento</label>
           <input
-            type="number"
+            type="date"
             name="lanzamiento"
             value={videojuego.lanzamiento}
             onChange={handleChange}
@@ -97,6 +105,7 @@ function FormularioVideojuego({ onGuardar }) {
             type="number"
             step="0.01"
             name="precio"
+            placeholder="0.00"
             value={videojuego.precio}
             onChange={handleChange}
           />
