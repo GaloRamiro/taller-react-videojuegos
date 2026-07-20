@@ -23,7 +23,8 @@
 }
 
 .formulario input,
-.formulario select {
+.formulario select,
+.formulario textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -53,4 +54,10 @@
 
 .formulario button:hover {
   background-color: #0b5ed7;
+}
+
+.formulario textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
 }

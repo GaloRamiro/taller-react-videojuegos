@@ -12,6 +12,8 @@ function FormularioVideojuego({ onGuardar }) {
       plataforma: "",
       lanzamiento: "",
       precio: "",
+      descripcion: "",
+      calificacion: "",
       disponible: false,
     },
   );
@@ -42,6 +44,8 @@ function FormularioVideojuego({ onGuardar }) {
       plataforma: "",
       lanzamiento: "",
       precio: "",
+      descripcion: "",
+      calificacion: "",
       disponible: false,
     });
   }
@@ -110,7 +114,31 @@ function FormularioVideojuego({ onGuardar }) {
             onChange={handleChange}
           />
         </div>
+        <div>
+          <label>Sinopsis / Descripción</label>
 
+          <textarea
+            name="descripcion"
+            placeholder="Escriba una breve descripción del videojuego"
+            value={videojuego.descripcion}
+            onChange={handleChange}
+            rows="4"
+          ></textarea>
+        </div>
+
+        <div>
+          <label>Calificación de la crítica</label>
+
+          <input
+            type="number"
+            name="calificacion"
+            min="1"
+            max="100"
+            placeholder="Ingrese una nota de 1 a 100"
+            value={videojuego.calificacion}
+            onChange={handleChange}
+          />
+        </div>
         <div className="checkbox">
           <label>
             <input
