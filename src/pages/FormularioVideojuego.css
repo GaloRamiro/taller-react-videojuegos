@@ -1,59 +1,210 @@
+/* ===== CONTENEDOR ===== */
+
 .formulario-container {
-  max-width: 600px;
+  width: 95%;
+  max-width: 650px;
   margin: 40px auto;
-  padding: 25px;
+  padding: 35px;
   background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
 }
 
 .formulario-container h1 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  color: #2b2dff;
+  font-size: 2rem;
+  font-weight: 700;
 }
+
+/* ===== FORMULARIO ===== */
 
 .formulario {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 22px;
 }
 
+/* ===== LABELS ===== */
+
 .formulario label {
-  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+  color: #444;
+  font-weight: 600;
 }
+
+/* ===== INPUTS ===== */
 
 .formulario input,
 .formulario select,
+.formulario textarea,
 .formulario textarea {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  padding: 14px 16px;
   font-size: 16px;
+  font-family: inherit;
+
+  border: 1px solid #d9d9d9;
+  border-radius: 14px;
+
+  outline: none;
+
+  transition: all .3s ease;
+
+  box-sizing: border-box;
+
+  background: #fafafa;
 }
 
-.checkbox {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus {
+
+  border-color: #2b2dff;
+
+  background: white;
+
+  box-shadow:
+  0 0 0 4px rgba(43,45,255,.12);
+
 }
 
-.checkbox input {
-  width: auto;
+/* ===== TEXTAREA ===== */
+
+.formulario textarea{
+
+    resize:vertical;
+
+    min-height:130px;
+
+    max-height:260px;
+
 }
 
-.formulario button {
-  background-color: #0d6efd;
-  color: white;
-  border: none;
-  padding: 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 16px;
+/* ===== CHECKBOX ===== */
+
+.checkbox{
+
+    display:flex;
+
+    align-items:center;
+
 }
 
-.formulario button:hover {
-  background-color: #0b5ed7;
+.checkbox label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    cursor:pointer;
+
+    margin:0;
+
+}
+
+.checkbox input{
+
+    width:18px;
+
+    height:18px;
+
+}
+
+/* ===== BOTÓN ===== */
+
+.formulario button{
+
+    background:#2b2dff;
+
+    color:white;
+
+    border:none;
+
+    padding:15px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    transition:all .3s ease;
+
+}
+
+.formulario button:hover{
+
+    transform:translateY(-2px);
+
+    background:#1f21d4;
+
+    box-shadow:0 10px 25px rgba(43,45,255,.25);
+
+}
+
+/* ===== MENSAJES DE ERROR ===== */
+
+.error-mensaje{
+
+    display:block;
+
+    margin-top:6px;
+
+    color:#e63946;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    animation:fadeIn .3s ease;
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(-5px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:768px){
+
+.formulario-container{
+
+margin:20px;
+
+padding:25px;
+
+}
+
+.formulario-container h1{
+
+font-size:1.6rem;
+
+}
+
 }
 
 .formulario textarea {
