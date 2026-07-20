@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import videojuegosData from "./data/videojuegos";
 import Videojuegos from "./pages/Videojuegos";
 import FormularioVideojuego from "./pages/FormularioVideojuego";
@@ -7,7 +7,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 
 function App() {
-  const [videojuegos, setVideojuegos] = useState(videojuegosData);
+  const [videojuegos, setVideojuegos] = useState(() => {
+    const datosGuardados = localStorage.getItem("lista_videojuegos");
+
+    return datosGuardados ? JSON.parse(datosGuardados) : videojuegosData;
+  });
+  useEffect(() => {
+    localStorage.setItem("lista_videojuegos", JSON.stringify(videojuegos));
+  }, [videojuegos]);
 
   function agregarVideojuego(nuevoVideojuego) {
     setVideojuegos([
