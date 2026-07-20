@@ -5,13 +5,14 @@ import FormularioVideojuego from "./pages/FormularioVideojuego";
 import PaginaNoEncontrada from "./pages/PaginaNoEncontrada";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-
+import AlertaNotificacion from "./components/AlertaNotificacion";
 function App() {
   const [videojuegos, setVideojuegos] = useState(() => {
     const datosGuardados = localStorage.getItem("lista_videojuegos");
 
     return datosGuardados ? JSON.parse(datosGuardados) : videojuegosData;
   });
+  const [mensajeToast, setMensajeToast] = useState("");
   useEffect(() => {
     localStorage.setItem("lista_videojuegos", JSON.stringify(videojuegos));
   }, [videojuegos]);
@@ -47,14 +48,21 @@ function App() {
 
     if (existe) {
       editarVideojuego(videojuego);
+      setMensajeToast("Videojuego actualizado correctamente");
     } else {
       agregarVideojuego(videojuego);
+      setMensajeToast("Videojuego registrado correctamente");
     }
   }
   return (
     <BrowserRouter>
       <Navbar />
-
+      {mensajeToast && (
+        <AlertaNotificacion
+          mensaje={mensajeToast}
+          onCerrar={() => setMensajeToast("")}
+        />
+      )}
       <Routes>
         <Route
           path="/"
